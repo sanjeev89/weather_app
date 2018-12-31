@@ -23,6 +23,8 @@ app.get('/', function(req,res){
                 city:city,
                 temperature:Math.round(weather_json.main.temp),
                 description:weather_json.weather[0].description,
+                icon:weather_json.weather[0].icon
+                
             };
             res.render('index',{weather_data});
         }
