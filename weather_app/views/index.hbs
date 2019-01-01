@@ -14,56 +14,14 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 300px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-  z-index: 2;
-}
-
-.flip-card-back {
-  background-color: #2980b9;
-  color: white;
-  transform: rotateY(180deg);
-  z-index: 1;
+ <style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 </style>
-    <style>
-    .row{
-        border:1px solid red;
-    }
-    .col-d-4{
-        border:1px solid rgb(72, 255, 0);
-    }
-    </style>
 </head>
 <body>
     <!---
@@ -72,48 +30,101 @@ body {
     <p>{{weather_data.city}}</p>
     <p>{{weather_data.icon}}</p>  
     --> 
-    <h3 class="text-center">Weather app</h3><br>
+
     
-
-       <div class="container-fluid">
-              <div class="row">
-                <div class="col-sm-0 col-md-4"></div>
-                <div class="col-sm-12 col-md-4">
-                  <form class="form-inline">
-                   <div class="form-group mx-sm-3 mb-2">
-                   <label for="inputPassword2" class="sr-only">Password</label>
-                   <input type="text" class="form-control" id="city" placeholder="enter city name ">
-                   </div>
-                    <button type="submit" id="submit" class="btn btn-primary mb-2">submit</button>
-                   </form>
-                   <br>
-                   <div class="row p-1 " style="">
-     
-                </div>
-                </div>
-                <div class="col-sm-0 col-md-4"></div>
-            </div>
-
-        <!--rough-->
-  <br><br>
-        <div class="row">
-            <div class="col-sm-12 col-md-4"></div>
-            <div class="col-sm-12 col-md-4 " style="border:1px solid blue">
-                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                   Nesciunt id harum et dolores asperiores 
-                   reprehenderit error sapiente quis, 
-                   tenetur ducimus maiores tempora saepe accusantium nihil vitae optio explicabo. Sunt, rerum!
-                <div class="row p-1 " style="">
-                    <div class="col-sm-12 col-md-6" style="border:1px solid black">inside row inner div1</div>
-                    <div class="col-sm-12 col-md-6" style="border:1px solid black;">inside row inner div2</div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4"></div>
-        </div>
-            <br><br><br>
-            src="http://openweathermap.org/img/w/{{ weather_data.icon}}.png
-            
+    
+    <div class="container-fluid">
+    <div class=" text-center ">
+     <h3 class=" center text-center">Weather app</h3><br>
+     <input type="text" name="city" placeholder="enter city name">
+     <button class="button btn-success text-center btn">submit</button>
     </div>
+              <br>  <h4 class="text-center">Current Weather</h4>
+        <div class="row">
+            <div class="col-sm-0 col-md-4" ></div>
+            <div class="col-sm-12 col-md-4" >
+                <div class="row">
+                    <div class="col-md-5 col-sm-5 p-1 text-center" style="border:1px solid black;">
+                    <img src="http://openweathermap.org/img/w/{{ weather_data.icon}}.png" alt="" class="center" style="border-radius:50%; width:50px; height:50px;">
+                    <br>
+                    <p class="center">{{weather_data.description}}</p>
+                </div>
+                    <div class="col-md-7 col-sm-7 p-1 text-center" style="border:1px solid black;">
+                        <br>
+                       <p class="center " style="margin-top: 10px;font-weight:bolder">{{weather_data.city}}</p>
+                       <p class="center " style="margin-top:-10px;font-weight:bolder">{{weather_data.country}}</p>
+                       <p>last checked __minutes ago</p>
+                    </div>
+                 </div>
+                <div class="row">
+                        <div class="col-md-5 col-sm-5 " style="border:1px solid black;">
+                           <div class="row" style="margin-top:20px">  
+                               <div class="col-sm-6 col-md-6 text-center" style=" color:white;border:1px solid black; background-color: grey">
+                                   <h3 class="center" >49°C</h3>
+                                   
+                               </div>
+                               <div class="col-sm-6 col-md-6 text-center" style="color:white;border:1px solid black;background-color: rgb(22, 20, 20)">
+                                    <h3 class="center" >12°F</h3>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="col-md-7 col-sm-7 " style="border:1px solid black;line-height:25px;">
+                           <p class="center">44:44, wednesday</p>
+                           <p class="center" style="margin-top:-10px">22,November,208</p>
+                        </div>
+                </div>
+                <div class="row">
+                    <p>message will be here</p>
+                </div>
+            </div>
+            <div class="col-sm-0 col-md-4" ></div>
+        </div>   
+                 <div class="text-center"><br><br><button type="button" class="btn btn-primary center">Click to see details</button> <br><br></div>
+        <div class="row">
+            <div class="col-sm-0 col-md-4"></div>
+            <div class="col-sm-12 col-md-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6" style="background-color:rgb(233, 107, 23)">
+                        <br>
+                        <img src="sunrise.svg" class="center"alt="" style="width:50px; height:50px"> <br>
+                              <p class="center" style="color:white">{{weather_data.sunrise}}</p> 
+                    </div>
+                    <div class="col-sm-12 col-md-6" style="background-color:rgb(34, 32, 32)">
+                        <br>
+                        <img src="sunset.svg" class="center" alt="" style="width:50px; height: 50px;"> <br>
+                        <p class="center" style="color:white">{{weather_data.sunset}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 text-center"> <br>
+                            <button type="button" class="btn btn-primary">Minimum Temperature</button>
+                        <h3 class="center" style="padding-top:5px;">{{weather_data.temp_min}}</h3>
+                    </div>
+                    <div class="col-sm-6 col-md-6 text-center"> <br>
+                            <button type="button" class="btn btn-primary">Maximum Temperature</button>
+                            <h3 class="center" style="padding-top:5px;">{{weather_data.temp_max}}</h3>
+                    </div>
+                </div>  <br>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4 text-center">
+                            <button type="button" class="btn btn-primary">humidity</button>
+                            <p class="center" style="padding-top:5px;">{{weather_data.humidity}}</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4 text-center">
+                            <button type="button" class="btn btn-primary">Wind</button>
+                            <p class="center" style="padding-top:5px; padding-right: 5px;">{{weather_data.wind_speed}}, {{weather_data.wind_deg}}</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4 text-center">
+                            <button type="button" class="btn btn-primary">Pressure</button>
+                            <p class="center" style="padding-top:5px;">{{weather_data.pressure}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-0 col-md-4"></div>
+        </div>
+    </div>
+
+    src="http://openweathermap.org/img/w/{{ weather_data.icon}}.png
     
 </body>
 
