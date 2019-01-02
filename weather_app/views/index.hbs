@@ -22,6 +22,7 @@ body {
   width: 50%;
 }
 </style>
+
 </head>
 <body>
     <!---
@@ -32,19 +33,22 @@ body {
     --> 
 
     
-    
+    <br>
     <div class="container-fluid">
     <div class=" text-center ">
      <h3 class=" center text-center">Weather app</h3><br>
-     <input type="text" name="city" placeholder="enter city name">
-     <button class="button btn-success text-center btn">submit</button>
+     <form method="POST" action="/">
+     <input type="text" name="city" id="city" placeholder="enter city name">
+     <button id="button" class="button btn-success text-center btn">submit</button>
+     </form>
     </div>
+    
               <br>  <h4 class="text-center">Current Weather</h4>
         <div class="row">
             <div class="col-sm-0 col-md-4" ></div>
             <div class="col-sm-12 col-md-4" >
                 <div class="row">
-                    <div class="col-md-5 col-sm-5 p-1 text-center" style="border:1px solid black;">
+                    <div class="col-md-5 col-sm-5 p-1 text-center" style="border:1px solid black;"> <br>
                     <img src="http://openweathermap.org/img/w/{{ weather_data.icon}}.png" alt="" class="center" style="border-radius:50%; width:50px; height:50px;">
                     <br>
                     <p class="center">{{weather_data.description}}</p>
@@ -60,17 +64,17 @@ body {
                         <div class="col-md-5 col-sm-5 " style="border:1px solid black;">
                            <div class="row" style="margin-top:20px">  
                                <div class="col-sm-6 col-md-6 text-center" style=" color:white;border:1px solid black; background-color: grey">
-                                   <h3 class="center" >49°C</h3>
+                                   <h3 class="center" >{{weather_data.temperature_cel}}</h3>
                                    
                                </div>
                                <div class="col-sm-6 col-md-6 text-center" style="color:white;border:1px solid black;background-color: rgb(22, 20, 20)">
-                                    <h3 class="center" >12°F</h3>
+                                    <h3 class="center" >{{weather_data.temperature_far}}</h3>
                                </div>
                            </div>
                         </div>
-                        <div class="col-md-7 col-sm-7 " style="border:1px solid black;line-height:25px;">
-                           <p class="center">44:44, wednesday</p>
-                           <p class="center" style="margin-top:-10px">22,November,208</p>
+                        <div class="col-md-7 col-sm-7 text-center " style="border:1px solid black;line-height:25px;margin-top:3px;">
+                           <p class="center" style="margin-top:10px">{{weather_data.above}}</p>
+                           <p class="center" style="margin-top:-10px">{{weather_data.below}}</p>
                         </div>
                 </div>
                 <div class="row">
@@ -79,19 +83,23 @@ body {
             </div>
             <div class="col-sm-0 col-md-4" ></div>
         </div>   
-                 <div class="text-center"><br><br><button type="button" class="btn btn-primary center">Click to see details</button> <br><br></div>
+                
+         <div class="text-center">
+        <br><br><button type="button" id="details" onclick="div_toggle()" class="btn btn-primary center">Click to see details</button> <br><br>
+        </div>
+        <div id="cont2" style="display:none">
         <div class="row">
             <div class="col-sm-0 col-md-4"></div>
             <div class="col-sm-12 col-md-4">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6" style="background-color:rgb(233, 107, 23)">
+                    <div class="col-sm-12 col-md-6 text-center" style="background-color:rgb(233, 107, 23)">
                         <br>
-                        <img src="sunrise.svg" class="center"alt="" style="width:50px; height:50px"> <br>
+                        <img src="sunrise.svg" alt=""style="width:50px; height: 50px;" > <br>
                               <p class="center" style="color:white">{{weather_data.sunrise}}</p> 
                     </div>
-                    <div class="col-sm-12 col-md-6" style="background-color:rgb(34, 32, 32)">
+                    <div class="col-sm-12 col-md-6 text-center" style="background-color:rgb(34, 32, 32)">
                         <br>
-                        <img src="sunset.svg" class="center" alt="" style="width:50px; height: 50px;"> <br>
+                        <img src="sunset.svg"  alt="" style="width:50px; height: 50px;"> <br>
                         <p class="center" style="color:white">{{weather_data.sunset}}</p>
                     </div>
                 </div>
@@ -122,10 +130,20 @@ body {
             </div>
             <div class="col-sm-0 col-md-4"></div>
         </div>
+        </div>
     </div>
 
-    src="http://openweathermap.org/img/w/{{ weather_data.icon}}.png
+    
     
 </body>
+<script>
+    function div_toggle(){
+          var x = document.getElementById("cont2");
+        if(x.style.display === "none")
+        {
+           x.style.display="block";
+        }
+    }
+</script>
 
 </html>
