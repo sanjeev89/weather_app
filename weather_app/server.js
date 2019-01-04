@@ -3,8 +3,10 @@ var express=require('express');
 var app=express();
 var path=require('path');
 
+
 var request=require('request');
 app.use(express.static('views'));
+app.use('/', express.static(path.join(__dirname, 'views')))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 app.set("view engine", "hbs");
@@ -41,7 +43,9 @@ app.post('/',function(req,res){
             console.log(weather_json);
             if(weather_json.cod=='404')
             {
-                res.send("Error! wrong input")
+                res.send(weather_json.message);
+                console.log(weather_json.message);
+                return;
             }
             //res.send(body);
             //console.log((weather_json=='404'));

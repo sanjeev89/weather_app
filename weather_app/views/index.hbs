@@ -44,16 +44,16 @@ body {
     </div>
     
               <br>  <h4 class="text-center">Current Weather</h4>
-        <div class="row">
+        <div class="row" >
             <div class="col-sm-0 col-md-4" ></div>
-            <div class="col-sm-12 col-md-4" >
+            <div class="col-sm-12 col-md-4" style="background-color:rgb(37, 34, 34);color:white;onhover{color:red}" >
                 <div class="row">
-                    <div class="col-md-5 col-sm-5 p-1 text-center" style="border:1px solid black;"> <br>
+                    <div class="col-md-5 col-sm-5 p-1 text-center" style="; "> <br>
                     <img src="http://openweathermap.org/img/w/{{ weather_data.icon}}.png" alt="" class="center" style="border-radius:50%; width:50px; height:50px;">
                     <br>
                     <p class="center">{{weather_data.description}}</p>
                 </div>
-                    <div class="col-md-7 col-sm-7 p-1 text-center" style="border:1px solid black;">
+                    <div class="col-md-7 col-sm-7 p-1 text-center" style=";">
                         <br>
                        <p class="center " style="margin-top: 10px;font-weight:bolder">{{weather_data.city}}</p>
                        <p class="center " style="margin-top:-10px;font-weight:bolder">{{weather_data.country}}</p>
@@ -61,24 +61,24 @@ body {
                     </div>
                  </div>
                 <div class="row">
-                        <div class="col-md-5 col-sm-5 " style="border:1px solid black;">
+                        <div class="col-md-5 col-sm-5 " style=";">
                            <div class="row" style="margin-top:20px">  
-                               <div class="col-sm-6 col-md-6 text-center" style=" color:white;border:1px solid black; background-color: grey">
+                               <div class="col-sm-6 col-md-6 text-center" style=" color:white;; background-color: grey">
                                    <h3 class="center" >{{weather_data.temperature_cel}}</h3>
                                    
                                </div>
-                               <div class="col-sm-6 col-md-6 text-center" style="color:white;border:1px solid black;background-color: rgb(22, 20, 20)">
+                               <div class="col-sm-6 col-md-6 text-center" style="color:white;;background-color: rgb(22, 20, 20)">
                                     <h3 class="center" >{{weather_data.temperature_far}}</h3>
                                </div>
                            </div>
                         </div>
-                        <div class="col-md-7 col-sm-7 text-center " style="border:1px solid black;line-height:25px;margin-top:3px;">
+                        <div class="col-md-7 col-sm-7 text-center " style=";line-height:25px;margin-top:3px;">
                            <p class="center" style="margin-top:10px">{{weather_data.above}}</p>
                            <p class="center" style="margin-top:-10px">{{weather_data.below}}</p>
                         </div>
                 </div>
                 <div class="row">
-                    <p>message will be here</p>
+                    <p></p>
                 </div>
             </div>
             <div class="col-sm-0 col-md-4" ></div>
